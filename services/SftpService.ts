@@ -1,16 +1,26 @@
 // Load the package at runtime so this file does not require its type declarations.
 declare const require: (moduleName: string) => any;
-const SftpClient = require('ssh2-sftp-client');
 
 export class SftpService {
 
-  private client: typeof SftpClient;
+  private client: any;
 
   constructor() {
-    this.client = new SftpClient();
+    this.client = undefined;
   }
 
   async connect(): Promise<void> {
+
+    let SftpClient: any;
+    try {
+      SftpClient = require('ssh2-sftp-client');
+    } catch {
+      throw new Error(
+        "The 'ssh2-sftp-client' package is required for SFTP operations. Install it with 'npm install ssh2-sftp-client'."
+      );
+    }
+
+    this.client = new SftpClient();
 
     await this.client.connect({
       host: process.env.SFTP_HOST,

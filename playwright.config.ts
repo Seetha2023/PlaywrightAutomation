@@ -51,8 +51,6 @@ export default defineConfig({
 
     video: 'retain-on-failure',
 
-    trace: 'retain-on-first-retry',
-
     actionTimeout: 15_000,
 
     navigationTimeout: 30_000    

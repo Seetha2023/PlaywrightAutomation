@@ -1,24 +1,18 @@
-import { Page, expect } from "@playwright/test";
+import { Locator, Page, expect } from "@playwright/test";
 
 export class ProcessingStatusPage {
 
-  constructor(private page: Page) {}
+  private status: Locator;
+  private processedCount: Locator;
+  private invalidCount: Locator;
+  private duplicateCount: Locator;
 
-  private status = this.page.locator(
-    '[data-testid="processing-status"]'
-  );
-
-  private processedCount = this.page.locator(
-    '[data-testid="processed-count"]'
-  );
-
-  private invalidCount = this.page.locator(
-    '[data-testid="invalid-count"]'
-  );
-
-  private duplicateCount = this.page.locator(
-    '[data-testid="duplicate-count"]'
-  );
+  constructor(private page: Page) {
+    this.status = page.locator('[data-testid="processing-status"]');
+    this.processedCount = page.locator('[data-testid="processed-count"]');
+    this.invalidCount = page.locator('[data-testid="invalid-count"]');
+    this.duplicateCount = page.locator('[data-testid="duplicate-count"]');
+  }
 
   async open(batchId: string) {
 

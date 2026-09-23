@@ -3,11 +3,11 @@ import {
   expect
 } from "@playwright/test";
 
-import { fileProcessingData } from "../../test-data/fileProcessingData";
-import { SftpService } from "../../services/SftpService";
-import { ProcessingApi } from "../../services/ProcessingApi";
-import { Logger } from "../../utils/Logger";
-import { retry } from "../../utils/Retry";
+import { fileProcessingData } from "../test-data/fileProcessingData";
+import { SftpService } from "../services/SftpService";
+import { ProcessingApi } from "../services/ProcessingApi";
+import { Logger } from "../utils/Logger";
+import { retry } from "../utils/Retry";
 
 for (const data of fileProcessingData) {
 
