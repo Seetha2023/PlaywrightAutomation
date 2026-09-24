@@ -8,4 +8,4 @@ The understanding of the task is as below
 •	Enterprise consumes the web portal.
 
 The source code is added here.
-The detailed test cases and other details added in the excel file
+The detailed test cases and other details added in the excel file - Please refer QA.xlsx
